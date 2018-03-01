@@ -15,8 +15,8 @@
 
 
 using namespace std;
-void Hangman(string name, int simulation);
-//void Hangman(int simulation);
+void Hangman(string name);
+
 int main()
 {
 	const int MAX_GUESSES = 8;
@@ -30,8 +30,15 @@ int main()
 	// Create an int var to count the number of simulations being run starting at 1
 	int simulations = 1;
 	// Display the simulation # is staring to the recruit. 
-	cout << "Simulation" << simulations << "starts Now!  Good luck recruit!";
-	Hangman(user_name, simulations);
+
+	while (simulations <3)
+	{
+		cout << "Simulation " << simulations << " starts Now!  Good luck recruit!";
+		Hangman(user_name);
+		simulations++;
+	}
+
+
 
 
 	// Hold the recruit's name in a var, and address them by it throughout the simulation.
@@ -102,9 +109,9 @@ int main()
 	//     Pause the Simulation with press any key to continue
     return 0;
 }
-	void Hangman(string name, int simulations)
+	void Hangman(string name)
 {
-		const int MAX_WRONG = 8; //Maximum Number of incorrect Guesses
+		const int MAX_WRONG = 26; //Maximum Number of incorrect Guesses
 
 		vector<string> words; //collection of possible words to guess
 		words.push_back("Alpha");
@@ -177,7 +184,6 @@ int main()
 			cout << "\nYou guessed it!";
 		}
 		cout << "\nThe word was " << THE_WORD << endl;
-		simulations = simulations + 1;
-		return (simulations);
+
 }
 
